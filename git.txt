@@ -1,0 +1,72 @@
+﻿git config --global --list
+
+git add -A //提交所有变更到暂存区
+
+版本操作
+
+整个版本回退 
+git log --oneline
+git reset --hard 哈希码（七位）
+git relog
+
+分支操作
+
+查看分支（详细）
+git branch -v
+ git log --oneline --all --graph
+git branch -vv //查看本地分支与远程仓库分支的对应关系
+创建分支
+git branch test//分支名
+切换分支
+git checkout test
+创建并切换分支
+git checkout -b test
+查看当前分支
+cat .git/HEAD/git status
+保存分离头 
+1.git checkout 哈希码
+git checkout -b test //创建并保存分支
+2.git branch test 哈希码
+
+比较差异
+git diff //比较工作区和暂存区的差异
+git diff --txt1 txt2
+git diff HEAD //比较工作区与当前分支最新提交的差异 //HEAD指向当前所在分支的最新提交
+git diff 哈希 
+git diff 哈希 哈希//比较两个提交之间的差异
+git diff HEAD~ HEAD //比较最新提交和前一个提交的差异//一个~表示一个父提交，可以用多个~
+git diff --cached//比较暂存区和最新提交的差异
+
+获取提交的哈希码
+git rev-parse 分支名/哈希缩写
+
+回退
+git reset HEAD//暂存区恢复到最新commit 3-2
+//git reset HEAD --txt1
+git reset --hard HEAD//工作区 暂存区都恢复到最新commit 3-21
+git reset --soft commitID //最新提交恢复到commitID提交 3-3
+git checkout --f2//3-1
+git checkout --./*
+git checkout --f2//2-1
+
+合并分支
+git merge b1
+git merge --no-ff A //不适用fast-forward
+git merge --ff-only A //只有符合fast-forward才会合并
+git merge --no-edit A//不适用编辑器，默认注释
+git merge A --no-ff -m "merge message"
+
+解决冲突
+git merge --abort//放弃合并
+git add //修改完再合并
+git branch -d b1//删除分支b1
+git branch -D b1//强制删除，不管是否已经合并了
+
+git commit -am "注释"// git add+git commit -m
+git rm testfile // rm testfile+git add testfile
+git mv testfile tf // mv testfile tf+git add tf
+
+ssh-keygen.exe //生成密钥对
+C:\Users\用户名\.ssh
+ 
+git remote -v //查看本地仓库对应的远程仓库
