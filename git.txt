@@ -70,3 +70,16 @@ ssh-keygen.exe //生成密钥对
 C:\Users\用户名\.ssh
  
 git remote -v //查看本地仓库对应的远程仓库
+
+推送
+git push origin master:master //本地分支名：远程分支名//如果远程分支不存在则新建
+设置本地分支的上游分支//可以先把new分支推送，再设置上游分支
+git push -u origin new:new
+git push --set-upstream origin new:new
+
+git branch new --set-upstream-to=origin/new
+git branch new -u origin/new
+git branch -u origin/new new//-u 后面带远程分支名
+
+本地项目与远程仓库连接
+git remote add origin git@github.com:lixiaolong1521/tools.git
